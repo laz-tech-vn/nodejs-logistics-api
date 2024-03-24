@@ -1,0 +1,40 @@
+{
+  "name": "laz-logistics-api",
+  "version": "1.0.1",
+  "description": "Lazada Logistics API",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "prepare": "npm run build",
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "tsc"
+  },
+  "keywords": [
+    "laz-logistics-api",
+    "logistics-api",
+    "lazada-logistics-api"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/laz-tech-vn/nodejs-logistics-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.29",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.2"
+  }
+}
