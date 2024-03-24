@@ -1,6 +1,6 @@
 {
   "name": "laz-logistics-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Lazada Logistics API",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
