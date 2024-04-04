@@ -1,6 +1,6 @@
 {
   "name": "laz-logistics-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Lazada Logistics API",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -24,8 +24,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.6.8",
+    "axios": "^1.6.2",
     "crypto": "^1.0.1",
+    "crypto-js": "^4.2.0",
     "dotenv": "^16.4.5",
     "ts-node": "^10.9.2"
   },
