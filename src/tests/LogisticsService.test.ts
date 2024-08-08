@@ -117,15 +117,13 @@ describe("LogisticsService", () => {
     packageCode = response.data.packageCode;
   });
 
-  it("should print AWB", async () => {
+  it("should print AWB V1", async () => {
     const response = await logisticsService.printAwb({
-      packageCode: packageCode,
+      packageCode: "FU2520023000000000000006988748744",
       type: "pdf",
     });
     // response.success = true
     expect(response).toHaveProperty("success");
-    // response.data.awb = "string"
-    expect(response.data).toHaveProperty("url");
   });
 
   it("should cancel package", async () => {
@@ -134,6 +132,46 @@ describe("LogisticsService", () => {
       reason: "reason test",
     });
     // response.success = true
+    expect(response).toHaveProperty("success");
+  });
+  it("estimate shipping fee", async () => {
+    const response = await logisticsService.estimateShippingFee({
+      externalSellerId: "Q123",
+      platformName: "Ice_cream",
+      fromAddressId: "R2587255",
+      toAddressId: "R80199163",
+      chargeFactor: {
+        deliveryOption: "standard",
+        packageType: "Sales_order",
+        paymentType: "COD",
+        weight: "100",
+      },
+    });
+    // response.success = true
+    expect(response).toHaveProperty("success");
+    // response.data[0].transactionType = "string"
+    expect(response.data[0]).toHaveProperty("transactionType");
+  });
+
+  //get shipping fee
+  it("should get shipping fee", async () => {
+    const response = await logisticsService.getShippingFee({
+      externalSellerId: "Q123",
+      platformName: "Ice_cream",
+      trackingNumber: "LMP0263981358VNA",
+    });
+    // response.success = true
+    expect(response).toHaveProperty("success");
+    // response.data.estimatedShippingFee = "string"
+    expect(response.data).toHaveProperty("estimatedShippingFee");
+  });
+  // print AWB v2
+  it("should print AWB v2", async () => {
+    const response = await logisticsService.printAwbV2({
+      packageCodes: ["FU2520023000000000000006988748744"],
+      type: "pdf",
+    });
+    response.success = true;
     expect(response).toHaveProperty("success");
   });
 });

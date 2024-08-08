@@ -56,6 +56,20 @@ class LogisticsService {
   }
 
   /**
+   * Print AWB v2
+   * @param $params
+   * @return mixed
+   * @document https://open.lazada.com/apps/doc/api?path=/logistics/epis/v2/packages/awb
+   */
+  public async printAwbV2(params: any) {
+    return this.lazopClient.request(
+      "/logistics/epis/v2/packages/awb",
+      params,
+      "GET",
+    );
+  }
+
+  /**
    * cancel package
    * @param $params
    * @return mixed
@@ -88,10 +102,22 @@ class LogisticsService {
     return this.lazopClient.request(
       "/logistics/epis/estimate_shipping_fee",
       params,
-      "GET",
+      "POST",
     );
   }
-
+  /**
+   * Get Shipping Fee
+   * @param $params
+   * @return mixed
+   * @document https://open.lazada.com/apps/doc/api?path=%2Flogistics%2Fepis%2Fget_shipping_fee
+   */
+  public async getShippingFee(params: any) {
+    return this.lazopClient.request(
+      "/logistics/epis/get_shipping_fee",
+      params,
+      "POST",
+    );
+  }
   /**
    * PackageConsignment
    * @param $params

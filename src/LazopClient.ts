@@ -59,7 +59,12 @@ class LazopClient {
       .join("&");
     if (method === "GET") {
       const paramsString = Object.entries(params)
-        .map(([key, value]) => `${key}=${value}`)
+        .map(([key, value]) => {
+          if (typeof value === "object") {
+            return `${key}=${JSON.stringify(value)}`;
+          }
+          return `${key}=${value}`;
+        })
         .join("&");
       query += `&${paramsString}`;
     }
